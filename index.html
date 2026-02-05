@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Dolphin | Magical Reading for the Little Ones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            html {
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scroll-padding-top: 80px;
+                /* Adaptação para o header fixo */
+            }
+
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .font-serif {
+                font-family: 'Merriweather', serif;
+            }
+
+            .gradient-text {
+                background: linear-gradient(90deg, #d97706, #92400e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .bg-pattern {
+                background-color: #fffcf7;
+                background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            }
+
+            .book-shadow {
+                filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            }
+
+            .book-shadow {
+                filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            }
+
+            .book-shadow {
+                filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+            }
+
+            /* Artistic Filter for "Illustrated" Look */
+            .live-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 10s ease;
+                filter: brightness(1.1) contrast(1.15) saturate(1.8) sepia(0.15) hue-rotate(-5deg);
+                will-change: transform;
+                /* Hardware Acceleration */
+                transform: translate3d(0, 0, 0);
+                /* Force GPU */
+            }
+
+            .group:hover .live-photo {
+                transform: scale(1.1) translate3d(0, 0, 0);
+            }
+
+            /* Animation Classes */
+            .reveal {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+                /* Hardware Accelerated */
+                transition: all 0.8s ease-out;
+                will-change: transform, opacity;
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+
+            /* Sales Popup Styles */
+            #sales-notification {
+                transform: translateX(-150%);
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 9999;
+            }
+
+            #sales-notification.visible {
+                transform: translateX(0);
+            }
+    </style>
+</head>
+
+<body class="bg-pattern antialiased text-stone-900">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-100 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-2xl font-extrabold tracking-tighter text-amber-900 uppercase">E-<span
+                    class="text-amber-600">DOLPHIN</span></span>
+            <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-stone-500">
+                <a href="#benefits" class="hover:text-amber-600 transition">Benefits</a>
+                <a href="#collection" class="hover:text-amber-600 transition">The Collection</a>
+                <a href="#pricing" class="hover:text-amber-600 transition text-amber-600">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECÇÃO HERO -->
+    <section class="relative pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <span
+                    class="inline-block bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Baby
+                    & Toddler Edition</span>
+                <h1 class="text-6xl lg:text-7xl font-extrabold leading-none tracking-tighter text-slate-900">
+                    Gentle Stories for <br><span class="gradient-text">Sweet Dreams.</span>
+                </h1>
+                <p class="text-xl text-stone-600 leading-relaxed max-w-lg">
+                    A premium collection of 10 interactive tales designed specifically for babies and toddlers. Spark
+                    their imagination while they learn colors, animals, and friendship.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- O link e o texto do preço são injetados pelo JavaScript abaixo -->
+                    <a href="https://buy.stripe.com/3cI8wJ7t92bUgeM44gawo03" target="_blank"
+                        class="stripe-button bg-amber-600 text-white px-8 py-4 rounded-2xl font-bold text-center hover:bg-amber-700 transition shadow-xl shadow-amber-200 uppercase tracking-widest text-sm">
+                        Access Collection (<span class="price-text">$4.99</span>)
+                    </a>
+                    <a href="#collection"
+                        class="bg-white border-2 border-stone-200 px-8 py-4 rounded-2xl font-bold text-center hover:bg-stone-50 transition uppercase tracking-widest text-sm">
+                        See Stories
+                    </a>
+                </div>
+            </div>
+
+            <!-- IMAGEM DO PRODUTO (CORRIGIDA) -->
+            <div class="relative flex justify-center lg:justify-end">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-400/20 rounded-full blur-3xl">
+                </div>
+                <div class="relative z-10 w-full max-w-md group">
+                    <img src="imagens/capa_magica.png.png" alt="[Capa do Livro Arthur the Rabbit]"
+                        class="w-full h-auto rounded-[2rem] book-shadow transform transition duration-500 group-hover:scale-[1.02]"
+                        loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE BENEFÍCIOS -->
+    <section id="benefits" class="py-24 bg-white px-6 reveal">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-16 text-slate-900">Development & Calm</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <div
+                        class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto text-3xl hover:scale-110 transition duration-300 cursor-pointer">
+                        🎨
+                    </div>
+                    <h4 class="text-xl font-bold">Vibrant Colors</h4>
+                    <p class="text-sm text-stone-500 leading-relaxed">Cute illustrations with soft, rounded shapes to
+                        gently engage your child's vision.</p>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto text-3xl hover:scale-110 transition duration-300 cursor-pointer">
+                        🌙
+                    </div>
+                    <h4 class="text-xl font-bold">Sleep Ritual</h4>
+                    <p class="text-sm text-stone-500 leading-relaxed">Calm, repetitive texts that help lower heart rate
+                        and prepare for a peaceful sleep.</p>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto text-3xl hover:scale-110 transition duration-300 cursor-pointer">
+                        🦒
+                    </div>
+                    <h4 class="text-xl font-bold">Early Learning</h4>
+                    <p class="text-sm text-stone-500 leading-relaxed">Teaches core concepts: animal names, farm sounds,
+                        and basic numbers in a fun way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DA COLEÇÃO (NOVA) -->
+    <section id="collection" class="py-24 px-6 relative reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-amber-600 font-black uppercase tracking-widest text-xs">Full Library</span>
+                <h2 class="text-4xl font-extrabold text-slate-900 mt-2">Peek Inside the Collection</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="group relative bg-white rounded-3xl p-6 shadow-lg border border-stone-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden">
+                    <div class="aspect-[3/4] bg-amber-100 rounded-2xl mb-6 overflow-hidden relative">
+                        <img src="imagens/Rabbit.png" alt="Rabbit" class="live-photo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <span class="text-xs font-bold uppercase tracking-wider opacity-80 mb-1 block">Best
+                                Seller</span>
+                            <div class="font-bold text-xl leading-tight">Arthur the Rabbit</div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-xl text-stone-900 mb-2">Arthur's Big Day</h3>
+                    <p class="text-sm text-stone-500">A story about friendship and sharing carrots.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="group relative bg-white rounded-3xl p-6 shadow-lg border border-stone-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden">
+                    <div class="aspect-[3/4] bg-blue-100 rounded-2xl mb-6 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Moon and Night" class="live-photo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <span class="text-xs font-bold uppercase tracking-wider opacity-80 mb-1 block">Bedtime
+                                Favorite</span>
+                            <div class="font-bold text-xl leading-tight">Goodnight Moon</div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-xl text-stone-900 mb-2">Sleepy Time</h3>
+                    <p class="text-sm text-stone-500">Perfect for calming down before bed.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="group relative bg-white rounded-3xl p-6 shadow-lg border border-stone-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden">
+                    <div class="aspect-[3/4] bg-green-100 rounded-2xl mb-6 overflow-hidden relative">
+                        <img src="imagens/Adventure.png" alt="Forest" class="live-photo" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider opacity-80 mb-1 block">Adventure</span>
+                            <div class="font-bold text-xl leading-tight">Forest Friends</div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-xl text-stone-900 mb-2">Who Lives Here?</h3>
+                    <p class="text-sm text-stone-500">Discover animals in the magical forest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO CONEXÃO (NOVA) -->
+    <section class="py-24 bg-amber-50 px-6 reveal">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 relative">
+                <div class="absolute inset-0 bg-orange-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                <!-- Placeholder para imagem emotiva - usando unsplash por enquanto -->
+                <img src="imagens/Book.jpg" alt="Open Book"
+                    class="relative rounded-[2rem] shadow-xl transform -rotate-2 hover:rotate-0 transition duration-500 w-full h-auto object-cover live-photo">
+            </div>
+            <div class="md:w-1/2 space-y-6">
+                <span class="text-amber-600 font-black uppercase tracking-widest text-xs">More Than Just Stories</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                    Building Bonds that <br>
+                    <span class="gradient-text">Last a Lifetime.</span>
+                </h2>
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    Reading together isn't just about learning words. It's about those quiet moments, the warm cuddles,
+                    and the shared giggles.
+                </p>
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    When you read to your child, you're building a secure attachment, fostering emotional intelligence,
+                    and creating a safe space where they feel deeply loved.
+                    <strong class="text-amber-700">It's 10 minutes that changes their entire day.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE PREÇO -->
+    <section id="pricing" class="py-24 px-6 bg-stone-900 reveal">
+        <div class="max-w-4xl mx-auto bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+            <div class="p-12 md:w-3/5 space-y-8">
+                <div>
+                    <h3 class="text-3xl font-extrabold mb-2 text-stone-900">Lifetime Access</h3>
+                    <p class="text-stone-500">Pay once and keep the portal forever on your tablet, phone, or computer.
+                    </p>
+                </div>
+                <ul class="space-y-4 text-sm font-semibold text-stone-700">
+                    <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 10 Interactive
+                        Toddler Tales</li>
+                    <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Reading Time
+                        Dashboard for Parents</li>
+                    <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Exclusive "Cute"
+                        Nursery Illustrations</li>
+                    <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> No Ads or
+                        Monthly Subscriptions</li>
+                </ul>
+            </div>
+            <div
+                class="bg-amber-600 p-12 md:w-2/5 text-center flex flex-col justify-center items-center text-white space-y-4">
+                <span class="text-xs font-black uppercase tracking-widest opacity-80">Special Launch Price</span>
+                <div class="flex items-start">
+                    <span class="currency-symbol text-2xl font-bold mt-2">$</span>
+                    <span class="price-value text-7xl font-black">4</span>
+                    <span class="price-decimal text-2xl font-bold mt-2">.99</span>
+                </div>
+                <p class="text-xs italic opacity-80">Instant Digital Access</p>
+
+                <a href="https://buy.stripe.com/3cI8wJ7t92bUgeM44gawo03" target="_blank"
+                    class="stripe-button w-full bg-white text-amber-900 py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-stone-100 transition shadow-lg block">
+                    Get Access Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDIT CARD / SECURE BADGES (OPTIONAL) -->
+    <div class="bg-stone-900 border-t border-stone-800 py-8 px-6 text-center">
+        <div class="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition">
+            <!-- Placeholder icons for payment methods -->
+            <span class="text-white text-xs">🔒 256-Bit SSL Secure Checkout</span>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 bg-white px-6 reveal">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-16">Loved by 10,000+ Happy Moms
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-amber-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex text-amber-500 mb-3 text-xs">★★★★★</div>
+                    <p class="text-stone-700 text-sm italic mb-4">"Finally stories that actually calm my son down
+                        instead of getting him hyped up!"</p>
+                    <div class="font-bold text-stone-900 text-xs">- Sarah J.</div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-amber-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex text-amber-500 mb-3 text-xs">★★★★★</div>
+                    <p class="text-stone-700 text-sm italic mb-4">"The illustrations are adorable. We read 'Arthur the
+                        Rabbit' every single night."</p>
+                    <div class="font-bold text-stone-900 text-xs">- Emily R.</div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-amber-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex text-amber-500 mb-3 text-xs">★★★★★</div>
+                    <p class="text-stone-700 text-sm italic mb-4">"Best $4.99 I ever spent. Instant access was a
+                        lifesaver for our trip."</p>
+                    <div class="font-bold text-stone-900 text-xs">- Jessica M.</div>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-amber-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex text-amber-500 mb-3 text-xs">★★★★★</div>
+                    <p class="text-stone-700 text-sm italic mb-4">"I love that there are no ads or subscriptions. Just
+                        simple, sweet stories."</p>
+                    <div class="font-bold text-stone-900 text-xs">- Amanda K.</div>
+                </div>
+                <!-- Review 5 -->
+                <div class="bg-amber-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex text-amber-500 mb-3 text-xs">★★★★★</div>
+                    <p class="text-stone-700 text-sm italic mb-4">"My daughter learned her colors thanks to the Rainbow
+                        story. Highly recommend!"</p>
+                    <div class="font-bold text-stone-900 text-xs">- Rachel L.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="py-12 border-t border-stone-200 text-center">
+        <p class="text-xs font-black uppercase tracking-[0.3em] text-stone-300">E-Dolphin Toddler Edition © 2026</p>
+    </footer>
+
+    <!-- SALES NOTIFICATION POPUP -->
+    <div id="sales-notification"
+        class="fixed bottom-4 left-4 bg-white rounded-xl shadow-2xl p-4 flex items-center gap-4 border border-stone-100 max-w-sm">
+        <div class="bg-green-100 p-2 rounded-full">
+            <span class="text-xl">🛍️</span>
+        </div>
+        <div>
+            <p class="text-sm font-bold text-slate-900"><span id="buyer-name">Sarah</span> from <span
+                    id="buyer-location">Texas</span></p>
+            <p class="text-xs text-stone-500">Just purchased the <strong>Toddler Collection</strong></p>
+            <p class="text-[10px] text-stone-400 mt-1">2 minutes ago</p>
+        </div>
+    </div>
+
+    <script>
+        // Links Oficiais do Stripe
+        const STRIPE_USA = "https://buy.stripe.com/3cI8wJ7t92bUgeM44gawo03";
+        const STRIPE_BRAZIL = "https://buy.stripe.com/aFa28l28P5o63s0eIUawo04";
+
+        function updateToBrazil() {
+            const buttons = document.querySelectorAll('.stripe-button');
+            buttons.forEach(btn => btn.href = STRIPE_BRAZIL);
+            document.querySelectorAll('.currency-symbol').forEach(el => el.innerText = 'R$');
+            document.querySelectorAll('.price-value').forEach(el => el.innerText = '29');
+            document.querySelectorAll('.price-decimal').forEach(el => el.innerText = ',90');
+            document.querySelectorAll('.price-text').forEach(el => el.innerText = 'R$ 29,90');
+        }
+
+        async function localizeCheckout() {
+            // Verificação por Fuso Horário (Imediata)
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const brTimezones = ["Sao_Paulo", "Recife", "Cuiaba", "Fortaleza", "Belem", "Noronha", "Manaus", "Porto_Velho"];
+
+            if (brTimezones.some(city => tz.includes(city))) {
+                updateToBrazil();
+            }
+
+            // Verificação por API de IP (Confirmação extra)
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                if (data.country_code === 'BR') {
+                    updateToBrazil();
+                }
+            } catch (error) {
+                console.log("Geolocalização via IP indisponível.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            localizeCheckout();
+
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Sales Notification Logic
+            const names = ["Sarah M.", "Jessica K.", "Emily R.", "Amanda L.", "Rachel T.", "Maria S.", "Julia C.", "Ashley W."];
+            const locations = ["Texas", "California", "New York", "Florida", "London", "Toronto", "Sydney", "Ohio"];
+            const notification = document.getElementById('sales-notification');
+            const nameSpan = document.getElementById('buyer-name');
+            const locSpan = document.getElementById('buyer-location');
+
+            function showNotification() {
+                // Random Data
+                const name = names[Math.floor(Math.random() * names.length)];
+                const location = locations[Math.floor(Math.random() * locations.length)];
+
+                nameSpan.innerText = name;
+                locSpan.innerText = location;
+
+                // Show
+                notification.classList.add('visible');
+
+                // Hide after 4s
+                setTimeout(() => {
+                    notification.classList.remove('visible');
+                }, 4000);
+            }
+
+            // Initial delay then interval
+            setTimeout(() => {
+                showNotification();
+                setInterval(showNotification, 15000); // Every 15 seconds
+            }, 5000);
+        });
+    </script>
+
+</body>
+
+</html>
